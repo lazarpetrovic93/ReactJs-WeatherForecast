@@ -1,0 +1,118 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.Bike-icon {
+  position: relative;
+  -webkit-animation-name: mymove; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 5s; /* Safari 4.0 - 8.0 */
+  animation-name: mymove;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+@-webkit-keyframes mymove {
+  from {left: 0px;}
+  to {left: 600px;}
+}
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 600px;}
+}
+
+.leafletCont {
+  margin-top: 12px;
+  max-height: 1200px;
+  max-width: 1000px;
+  min-width: 200px;
+  min-height: 450px;
+  overflow: hidden;
+  z-index: 999;
+}
+.nav-tabs>li>a {
+  line-height: 2.428571;
+}
+body {
+  overflow: hidden;
+}
+.page-header {
+  padding-bottom: 0;
+  margin: 0;
+  border-bottom: 0;
+}
+.todayWeather {
+  min-height: 500px;
+  max-height: 1000px;
+  max-width: 100%;
+  border-radius: 30px;
+  /* border-bottom-right-radius: 30px; */
+  /* border-radius: 15px; */
+  background-color: rgba(29, 31, 36, 0.219);
+  border-top-left-radius: 0;
+}
+.fiveDaysTable {
+  opacity: 0.9;
+  overflow: auto;
+  height: 400px;
+  max-width: 100%;
+  min-height: 500px;
+  max-height: 900px;
+  background-color: rgba(29, 31, 36, 0.219);
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+}
+.tableDayTimeCell {
+  max-width: 300px;
+}
+
+.fiveDaysTableCellPadding {
+  padding-top: 15px !important
+}
+
+.nav-tabs {
+  border-bottom: 0;
+}
+
+.tableCell {
+  max-width: 100px;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 100px;
+}
+h1 {
+  margin-top: 0;
+}
+.nav-tabs>li {
+  margin-bottom: 0px;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  background-color: rgba(29, 31, 36, 0.219);
+}
+a#uncontrolled-tab-example-tab-undefined:hover{
+  background-color: transparent;
+  cursor: default;
+  
+}
+.customH1 {
+  margin-top: 20px;
+}
+
+.todayTempTable {
+  border-radius: 20px;
+}
+.tableCellHead {
+  text-align: center;
+}
+.font-size-25 {
+  font-size: 25px;
+}
+.font-size-20 {
+  font-size: 20px;
+}
