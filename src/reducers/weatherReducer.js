@@ -1,7 +1,8 @@
 const initialState = {
   weather: {},
   inputText: '',
-  fiveDays: {}
+  fiveDays: {},
+  searchedCity: []
 }
 
 const weatherReducer = (state = initialState, action) => {
@@ -11,11 +12,13 @@ const weatherReducer = (state = initialState, action) => {
       return {
         ...state,
       };
+
     case 'FETCH_FIVE_DAYS':
       return {
         ...state,
         fiveDays: action.payload
       }
+
     case 'FETCH_DEFAULT_CITY':
       return {
         ...state,
@@ -24,14 +27,22 @@ const weatherReducer = (state = initialState, action) => {
     case 'CHANGE_CITY':
       return {
         ...state,
-        weather: action.payload
+        weather: action.payload,
+        // searchedCity: [...state.searchedCity, action.payload]
+        searchedCity: state.searchedCity.concat(action.payload)
       };
+
     case 'CHANGE_INPUT_TEXT':
-    // console.log(action.payload)
       return {
         ...state,
         inputText: action.payload
-    };  
+    };
+    
+    // case 'FETCH_RECENTLY_SEARCHED_CITY':
+    //   return {
+    //     ...state,
+    //     searchedCity: action.payload
+    //   };
     default:
     return state;
   }

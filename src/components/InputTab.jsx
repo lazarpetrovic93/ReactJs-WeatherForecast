@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { FormControl, FormGroup, Form, Button } from 'react-bootstrap'
 
 const InputTab = (props) => {

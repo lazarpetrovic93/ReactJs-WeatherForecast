@@ -35,6 +35,7 @@ export function fetchFiveDays(text) {
     })
   }
 }
+
 export function changeCity(text) {
   return function (dispatch) {
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${APIKEY}`)

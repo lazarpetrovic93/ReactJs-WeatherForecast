@@ -48,7 +48,6 @@ class TodayWeather extends Component {
   render(){
     const customMarker = L.icon({ iconUrl: require('../pics/marker.png'), })
     const position = [this.state.lat, this.state.lng]
-    console.log(position)
     return (
       <div className="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex flex-row">
         <div className="col-md-6 col-lg-6 col-sm-6 col-xs-6 d-flex p-2 flex-column">

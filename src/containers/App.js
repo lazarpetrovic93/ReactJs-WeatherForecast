@@ -3,7 +3,7 @@ import '../App.css'
 import Main from '../components/Main'
 import { connect } from 'react-redux';
 import { fetchDefaultCity, changeInputText, changeCity, fetchFiveDays} from '../actions/weatherActions'
-import { PageHeader, Button } from 'react-bootstrap'
+import { PageHeader } from 'react-bootstrap'
 import FaMotorcycle from 'react-icons/lib/fa/motorcycle'
 import backgroundImage from '../pics/way.jpg'
 import TiWeatherPartlySunny from 'react-icons/lib/ti/weather-partly-sunny'
@@ -43,6 +43,7 @@ class App extends Component {
 
   componentWillMount() {
     this.props.fetchDefaultCity()
+
   }
 
   render() {
@@ -66,7 +67,9 @@ class App extends Component {
         <div>
           <Main weatherProp = {this.props.weather}
                 inputTextProp = {this.props.inputTextVal}
-                fiveDaysProp = {this.props.weather.fiveDays}/>
+                fiveDaysProp = {this.props.weather.fiveDays}
+                fetchRecentlySearchedCity = {this.props.fetchRecentlySearchedCity}
+                searchedCityProp = {this.props.weather.searchedCity}/>
         </div>
       </div>
     );
@@ -92,7 +95,7 @@ const mapDispatchToProps = (dispatch) => {
     },
     fetchFiveDays: (text) => {
       dispatch(fetchFiveDays(text))
-    }
+    },
   }
 };
 
