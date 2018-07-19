@@ -24,9 +24,9 @@ const Main = ( props ) => {
           </Tab>
         </Tabs>
         </div>
-        <div>
+        {/* <div>
           <RecentlySearches searchedCityProp = {props.searchedCityProp}/>
-        </div>
+        </div> */}
       </div>
     )
   };
