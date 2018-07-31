@@ -13,10 +13,10 @@ import InputTab from '../components/InputTab'
 
 const bodyStyle = {
   backgroundImage: `url(${backgroundImage})`,
-  height: "1000px",
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
-  backgroundSize: 'cover'
+  backgroundSize: 'cover',
+  height: '1100px'
 }
 
 class App extends Component {
@@ -37,12 +37,13 @@ class App extends Component {
     if (this.props.inputTextVal.inputText) {
       this.props.changeCity(this.props.inputTextVal.inputText)
       this.props.fetchFiveDays(this.props.inputTextVal.inputText)
-      document.getElementById('formID').value = ''
+      // document.getElementById('formID').value = ''
     }
   }
 
   componentWillMount() {
     this.props.fetchDefaultCity()
+    this.props.fetchFiveDays('Belgrade')
 
   }
 
@@ -51,11 +52,22 @@ class App extends Component {
       <div style={bodyStyle}>
         <PageHeader>
           <div className="d-flex flex-row">
-            <div className="p-2">
-              <h3 ><TiWeatherPartlySunny /><TiWeatherSunny /><TiWeatherSnow /> Weather for</h3 >
-            </div>
-            <div className="p-2">
-              <FaMotorcycle className="Bike-icon" size={60}/>
+            <div className="p-2 d-flex flex-row" style={{marginTop: '15px'}}>
+              <div className="p-2">
+                <TiWeatherPartlySunny/>
+              </div>
+              <div className="p-2">
+                <TiWeatherSunny/>
+              </div>
+              <div  className="p-2">
+                <TiWeatherSnow/>
+              </div>
+              <div className="p-2">
+                Weather forecast
+              </div>
+              {/* <div className="p-2">
+                <FaMotorcycle className="Bike-icon" size={60}/>
+              </div> */}
             </div>
             <div className="p-2 ml-auto" style={{marginTop: '15px'}}>
             <InputTab inputHandleChange = {this.handleChange}

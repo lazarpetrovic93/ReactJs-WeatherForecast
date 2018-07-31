@@ -1,12 +1,49 @@
 .App {
   text-align: center;
 }
+body {
+  overflow: auto;
+}
 
 .App-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
+}
+@media only screen and (max-width : 986px) {
+
+  body {
+    overflow: auto !important;
+  }
+  .todayDiv {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+  }
+  .div1 {
+    order: 1;
+  }
+  .div2 {
+    order: 2;
+  }
+  .leafletCont {
+    max-height: 200px;
+  }
+  .todayWeather {
+    height: 900px;
+    max-width: 100%;
+    border-radius: 30px;
+    background-color: rgba(29, 31, 36, 0.219);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .tableCellDayTime {
+    min-width: 400px;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 100px;
+  }
 }
 
 .Bike-icon {
@@ -19,12 +56,12 @@
 }
 @-webkit-keyframes mymove {
   from {left: 0px;}
-  to {left: 600px;}
+  to {left: 400px;}
 }
 
 @keyframes mymove {
   from {left: 0px;}
-  to {left: 600px;}
+  to {left: 400px;}
 }
 
 .leafletCont {
@@ -36,7 +73,7 @@
   overflow: hidden;
   z-index: 999;
 }
-.recently-searches-div-parent {
+/* .recently-searches-div-parent {
   height: 100px;
   border-radius: 30px;
   border-top-left-radius: 0;
@@ -44,11 +81,19 @@
   background-color: rgba(29, 31, 36, 0.319);
   max-width: 400px;
   overflow: auto;
-  /* background-color: #fff; */
+} */
+.recently-searches-div {
+  height: 300px;
+  overflow: auto;
+  min-width: 300px;
+  max-width: 600px;
+  background-color: rgba(29, 31, 36, 0.219);
+  color: #337ab7;
 }
-.recently-searches-h {
+.recently-searches {
   color: #fff;
   font-size: 16px;
+  /* width: 600px; */
 }
  
 .recently-searches-div-parent {
@@ -59,16 +104,10 @@
   display: none;
 }
 
-.recently-searches-table {
-  /* background-color: #fff */
-  color: #337ab7;
-  background-color: rgba(29, 31, 36, 0.219);
-}
+
+
 .nav-tabs>li>a {
   line-height: 2.428571;
-}
-body {
-  overflow: hidden;
 }
 .page-header {
   padding-bottom: 0;
@@ -77,11 +116,11 @@ body {
 }
 .todayWeather {
   min-height: 500px;
-  max-height: 1000px;
   max-width: 100%;
   border-radius: 30px;
   background-color: rgba(29, 31, 36, 0.219);
   border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 .fiveDaysTable {
   opacity: 0.9;
@@ -113,7 +152,12 @@ body {
   text-align: center;
   margin-top: 100px;
 }
-
+.tableCellDayTime {
+  max-width: 300px;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 100px;
+}
 h1 {
   margin-top: 0;
 }

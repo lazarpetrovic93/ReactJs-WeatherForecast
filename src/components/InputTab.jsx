@@ -11,7 +11,7 @@ const InputTab = (props) => {
                       value = { props.inputTextProps }
                       placeholder="Enter City,Country"
                       onChange = { props.inputHandleChange }/>
-                      <Button type="submit">Search</Button>
+                      {/* <Button type="submit" className="btn btn-outline-success" style={{ float: 'right'}}>Search</Button> */}
         </FormGroup>
       </Form>
       

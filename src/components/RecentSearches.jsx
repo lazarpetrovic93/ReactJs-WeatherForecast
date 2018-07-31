@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table, Image } from 'react-bootstrap'
 
-const RecentlySearches = (props) => {
+const RecentSearches = (props) => {
 
  const  kelvinToCelsius =(kelvin) => {
     return Math.floor(kelvin - 273) + " °C"
@@ -20,8 +20,10 @@ const RecentlySearches = (props) => {
   
   console.log('props', props.searchedCityProp)
   return (
-    <div className="">
-      <div className="recently-searches-h">Recently Searches</div>
+    <div className="recently-searches-div">
+      <div className="recently-searches">
+        Recent Searches
+      </div>
       <Table hover responsive className="recently-searches-table">
         <tbody>
           {recentlySearchesTable}
@@ -30,4 +32,4 @@ const RecentlySearches = (props) => {
     </div>
   )
 }
-export default RecentlySearches;
+export default RecentSearches;

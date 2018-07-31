@@ -41,7 +41,7 @@ export default class FiveDays extends Component {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="tableCell">{this.timestampToTime(day.dt)}</td>
+                    <td className="tableCellDayTime"><p className="fiveDaysTableCellPadding">{this.timestampToTime(day.dt)}</p></td>
                     <td className="tableCell">{day.weather[0].main}<Image src = {`http://openweathermap.org/img/w/${day.weather[0].icon}.png`} circle /></td>
                     <td className="tableCell fiveDaysTableCellPadding">{this.kelvinToCelsius(day.main.temp)}</td>
                     <td className="tableCell fiveDaysTableCellPadding">{this.kelvinToCelsius(day.main.temp_max)}</td>

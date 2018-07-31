@@ -6,8 +6,6 @@ import moment from 'moment'
 import LocationIcon from 'react-icons/lib/ti/location-outline'
 import L from 'leaflet'
 
-// const TodayWheater = (props) => {
-//   console.log('props: ', props);
 class TodayWeather extends Component {
   constructor(props){
     super(props);
@@ -49,14 +47,13 @@ class TodayWeather extends Component {
     const customMarker = L.icon({ iconUrl: require('../pics/marker.png'), })
     const position = [this.state.lat, this.state.lng]
     return (
-      <div className="col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex flex-row">
-        <div className="col-md-6 col-lg-6 col-sm-6 col-xs-6 d-flex p-2 flex-column">
-          <div className="d-flex flex-row">
-            <h1 className="p-2 customH1"><LocationIcon />{this.props.todayProp.name},{this.weatherSys.country}</h1>
-            <div className="p-2 ml-auto font-size-25 d-flex flex-row" style={{ marginTop: '10px'}}>
-              <div className="p-2" style={{fontSize: '35px'}}>{this.kelvinToCelsius(this.weahterMain.temp)}</div>
-              <div className="p-2 ml-auto"><Image src = {`http://openweathermap.org/img/w/${this.weatherW.icon}.png`} circle responsive/></div>
-            </div>
+      <div className="col-md-12 col-lg-12 col-sm-12 col-xs-12 todayDiv">
+        <div className="col-md-12 col-lg-6 col-sm-12 col-xs-12 d-flex p-2 flex-column div1">
+          <div className="d-flex flex-row" style={{fontSize: '30px'}}>
+            <LocationIcon size={30} className="p-2"/>
+            <p className="p-2">{this.props.todayProp.name},{this.weatherSys.country}</p>
+            <div className="p-2">{this.kelvinToCelsius(this.weahterMain.temp)}</div>
+            <div className="p-2"><Image src = {`http://openweathermap.org/img/w/${this.weatherW.icon}.png`} circle responsive/></div>
           </div>
           <div className="p-2">
             <Table striped bordered condensed hover style={{marginTop: '15px'}}>
@@ -106,7 +103,7 @@ class TodayWeather extends Component {
           </div>
         </div>
 
-        <div className="col-md-6 col-lg-6 col-sm-6 col-xs-6 p-2">
+        <div className="col-md-12 col-lg-6 col-sm-12 col-xs-12 div2">
           <div className="leafletCont">
             <Map icon={customMarker} center={position} zoom={this.state.zoom} className="leafletCont">
               <TileLayer
