@@ -2,7 +2,7 @@ const APIKEY = '3a695059364d62327915cd46d123b523';
 
 export function fetchDefaultCity() {
   return function (dispatch) {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=Belgrade&appid=${APIKEY}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=Belgrade&appid=${APIKEY}`)
     .then(function (response) {
       return response.json();
   }).then( (data)=> {
@@ -22,7 +22,7 @@ export function changeInputText(inputText) {
 }
 export function fetchFiveDays(text) {
   return function(dispatch) {
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${text},us&mode=json&appid=${APIKEY}`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${text},us&mode=json&appid=${APIKEY}`)
     .then(function (response) {
       return response.json();
     }).then((data) => {
@@ -38,7 +38,7 @@ export function fetchFiveDays(text) {
 
 export function changeCity(text) {
   return function (dispatch) {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${APIKEY}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${APIKEY}`)
     .then(function (response) {
       return response.json();
   }).then((data) => {
