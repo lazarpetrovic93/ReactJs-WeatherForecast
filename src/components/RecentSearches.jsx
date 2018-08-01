@@ -9,7 +9,7 @@ const RecentSearches = (props) => {
   const recentlySearchesTable = props.searchedCityProp.map((cell)=> {
       if (props.searchedCityProp !== undefined) {
         return (
-          <tr onClick={() => alert('aloooo')}>
+          <tr onClick={() => alert(cell.name, cell.main.temp)}>
             <td>{cell.name}</td>
             <td>{kelvinToCelsius(cell.main.temp)}</td>
             <td>{<Image src = {`http://openweathermap.org/img/w/${cell.weather[0].icon}.png`} circle responsive/>}</td>
