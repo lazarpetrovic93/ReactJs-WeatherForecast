@@ -5,6 +5,7 @@ import  'leaflet/dist/leaflet.css'
 import moment from 'moment'
 import LocationIcon from 'react-icons/lib/ti/location-outline'
 import L from 'leaflet'
+import swal from 'sweetalert'
 
 class TodayWeather extends Component {
   constructor(props){
@@ -26,7 +27,13 @@ class TodayWeather extends Component {
   componentWillReceiveProps(nextProps){
     if(this.props.todayProp.name !== nextProps.todayProp.name) {
       this.weatherSys = nextProps.todayProp.sys
-      this.weatherW = nextProps.todayProp.weather[0]
+      if (nextProps.todayProp.weather[0] !== undefined) {
+        this.weatherW = nextProps.todayProp.weather[0]
+        // swal("error");
+      } 
+      else {
+        swal("error");
+      }
       this.weahterMain = nextProps.todayProp.main
       this.setState({
         lat: nextProps.todayProp.coord.lat,

@@ -37,14 +37,12 @@ class App extends Component {
     if (this.props.inputTextVal.inputText) {
       this.props.changeCity(this.props.inputTextVal.inputText)
       this.props.fetchFiveDays(this.props.inputTextVal.inputText)
-      // document.getElementById('formID').value = ''
     }
   }
 
   componentWillMount() {
     this.props.fetchDefaultCity()
     this.props.fetchFiveDays('Belgrade')
-
   }
 
   render() {
@@ -81,7 +79,9 @@ class App extends Component {
                 inputTextProp = {this.props.inputTextVal}
                 fiveDaysProp = {this.props.weather.fiveDays}
                 fetchRecentlySearchedCity = {this.props.fetchRecentlySearchedCity}
-                searchedCityProp = {this.props.weather.searchedCity}/>
+                searchedCityProp = {this.props.weather.searchedCity}
+                changeCityProp = {this.props.changeCity }
+                fetchFiveDaysProp = {this.props.fetchFiveDays}/>
         </div>
       </div>
     );
