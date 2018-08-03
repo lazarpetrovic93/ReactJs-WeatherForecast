@@ -9,26 +9,28 @@ const RecentSearches = (props) => {
   const recentlySearchesTable = props.searchedCityProp.map((cell)=> {
       if (props.searchedCityProp !== undefined) {
         return (
-          <tr onClick={() => {props.changeCityProp(cell.name), props.fetchFiveDaysProp(cell.name)}}>
-            <td>{cell.name}</td>
-            <td>{kelvinToCelsius(cell.main.temp)}</td>
-            <td>{ <Image src = {`https://openweathermap.org/img/w/${cell.weather[0].icon}.png`} circle responsive/>}</td>
-        </tr>
+          <Table hover responsive className="recently-searches-table">
+            <tbody>
+            <tr onClick={() => {props.changeCityProp(cell.name), props.fetchFiveDaysProp(cell.name)}} className="recently-searches-tr">
+              <td style={{width:"200px"}}>{cell.name}</td>
+              <td>{kelvinToCelsius(cell.main.temp)}</td>
+              <td >{ <Image src = {`http://openweathermap.org/img/w/${cell.weather[0].icon}.png`} circle responsive/>}</td>           
+            </tr>
+          </tbody>
+        </Table>
         ) 
       }
   })
   
   console.log('props', props.fetchFiveDaysProp)
   return (
-    <div className="recently-searches-div">
+    <div >
       <div className="recently-searches">
         Recent Searches
       </div>
-      <Table hover responsive className="recently-searches-table">
-        <tbody>
+      <div className="recently-searches-div">
           {recentlySearchesTable}
-        </tbody>
-      </Table>
+      </div>
     </div>
   )
 }

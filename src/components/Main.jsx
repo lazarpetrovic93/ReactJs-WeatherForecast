@@ -24,10 +24,10 @@ const Main = ( props ) => {
             </Tab>
           </Tabs>
           <div>
-          <RecentSearches searchedCityProp = { props.searchedCityProp }
+            <RecentSearches searchedCityProp = { props.searchedCityProp }
                           changeCityProp = { props.changeCityProp }
                           fetchFiveDaysProp = { props.fetchFiveDaysProp}/>
-        </div>
+          </div>
         </div>
       </div>
     )

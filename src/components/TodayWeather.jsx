@@ -27,12 +27,13 @@ class TodayWeather extends Component {
   componentWillReceiveProps(nextProps){
     if(this.props.todayProp.name !== nextProps.todayProp.name) {
       this.weatherSys = nextProps.todayProp.sys
-      if (nextProps.todayProp.weather[0] !== undefined) {
-        this.weatherW = nextProps.todayProp.weather[0]
-      } 
-      else {
-        swal("error");
-      }
+      this.weatherW = nextProps.todayProp.weather[0]
+      // if (nextProps.todayProp.weather[0] !== undefined) {
+      //   this.weatherW = nextProps.todayProp.weather[0]
+      // } 
+      // else {
+      //   swal("error");
+      // }
       this.weahterMain = nextProps.todayProp.main
       this.setState({
         lat: nextProps.todayProp.coord.lat,
@@ -59,10 +60,10 @@ class TodayWeather extends Component {
             <LocationIcon size={30} className="p-2"/>
             <p className="p-2">{this.props.todayProp.name},{this.weatherSys.country}</p>
             <div className="p-2">{this.kelvinToCelsius(this.weahterMain.temp)}</div>
-            <div className="p-2"><Image src = {`https://openweathermap.org/img/w/${this.weatherW.icon}.png`} circle responsive/></div>
+            <div className="p-2"><Image src = {`http://openweathermap.org/img/w/${this.weatherW.icon}.png`} circle responsive/></div>
           </div>
           <div className="p-2">
-            <Table striped bordered condensed hover style={{marginTop: '15px'}}>
+            <Table bordered condensed hover style={{marginTop: '15px'}}>
               <tbody>
                 <tr>
                   <td>
@@ -114,7 +115,7 @@ class TodayWeather extends Component {
             <Map icon={customMarker} center={position} zoom={this.state.zoom} className="leafletCont">
               <TileLayer
                 attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                url="http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               <Marker position={position} icon={customMarker}>
                 <Popup>

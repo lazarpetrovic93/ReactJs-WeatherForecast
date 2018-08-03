@@ -5,18 +5,20 @@ import { connect } from 'react-redux';
 import { fetchDefaultCity, changeInputText, changeCity, fetchFiveDays} from '../actions/weatherActions'
 import { PageHeader } from 'react-bootstrap'
 import FaMotorcycle from 'react-icons/lib/fa/motorcycle'
-import backgroundImage from '../pics/way.jpg'
+import backgroundImage from '../pics/skyy.jpg'
+import rainBackground from '../pics/city.jpg'
 import TiWeatherPartlySunny from 'react-icons/lib/ti/weather-partly-sunny'
 import TiWeatherSunny from 'react-icons/lib/ti/weather-sunny'
 import TiWeatherSnow from 'react-icons/lib/ti/weather-snow'
 import InputTab from '../components/InputTab'
 
-const bodyStyle = {
+let bodyStyle = {
   backgroundImage: `url(${backgroundImage})`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
   backgroundSize: 'cover',
-  height: '1100px'
+  minHeight:'982px',
+  maxHeight: '1500px'
 }
 
 class App extends Component {
@@ -37,6 +39,17 @@ class App extends Component {
     if (this.props.inputTextVal.inputText) {
       this.props.changeCity(this.props.inputTextVal.inputText)
       this.props.fetchFiveDays(this.props.inputTextVal.inputText)
+      console.log('OVO JE STATE ', this.props.weather.weather.weather[0].main)
+    }
+    if (this.props.weather.weather.weather[0].main === "Clouds") {
+        bodyStyle = {
+          backgroundImage: `url(${rainBackground})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          minHeight:'982px',
+          maxHeight: '1500px'
+        }
     }
   }
 
