@@ -6,7 +6,7 @@ import { fetchDefaultCity, changeInputText, changeCity, fetchFiveDays} from '../
 import { PageHeader } from 'react-bootstrap'
 import FaMotorcycle from 'react-icons/lib/fa/motorcycle'
 import backgroundImage from '../pics/skyy.jpg'
-import rainBackground from '../pics/city.jpg'
+import rainBackground from '../pics/rainyday.jpg'
 import TiWeatherPartlySunny from 'react-icons/lib/ti/weather-partly-sunny'
 import TiWeatherSunny from 'react-icons/lib/ti/weather-sunny'
 import TiWeatherSnow from 'react-icons/lib/ti/weather-snow'
@@ -41,7 +41,7 @@ class App extends Component {
       this.props.fetchFiveDays(this.props.inputTextVal.inputText)
       console.log('OVO JE STATE ', this.props.weather.weather.weather[0].main)
     }
-    if (this.props.weather.weather.weather[0].main === "Clouds") {
+    if (this.props.weather.weather.weather[0].main === "Rain") {
         bodyStyle = {
           backgroundImage: `url(${rainBackground})`,
           backgroundRepeat: 'no-repeat',
@@ -49,7 +49,17 @@ class App extends Component {
           backgroundSize: 'cover',
           minHeight:'982px',
           maxHeight: '1500px'
-        }
+      }
+    }
+    else {
+      bodyStyle = {
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        minHeight:'982px',
+        maxHeight: '1500px'
+    }
     }
   }
 
