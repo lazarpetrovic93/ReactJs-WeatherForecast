@@ -60,7 +60,7 @@ class TodayWeather extends Component {
             <LocationIcon size={30} className="p-2"/>
             <p className="p-2 font-size-25">{this.props.todayProp.name},{this.weatherSys.country}</p>
             <div className="p-2 font-size-25">{this.kelvinToCelsius(this.weahterMain.temp)}</div>
-            <div className="p-2 font-size-25"><Image src = {`http://openweathermap.org/img/w/${this.weatherW.icon}.png`} circle responsive/></div>
+            <div className="p-2 font-size-25" style={{marginTop: '-7px'}}><Image src = {`http://openweathermap.org/img/w/${this.weatherW.icon}.png`} circle responsive/></div>
           </div>
           <div className="p-2">
             <Table bordered condensed hover style={{marginTop: '15px'}}>

@@ -5,20 +5,21 @@ import { connect } from 'react-redux';
 import { fetchDefaultCity, changeInputText, changeCity, fetchFiveDays} from '../actions/weatherActions'
 import { PageHeader } from 'react-bootstrap'
 import FaMotorcycle from 'react-icons/lib/fa/motorcycle'
-import backgroundImage from '../pics/skyy.jpg'
-import rainBackground from '../pics/rainyday.jpg'
+import sunBackground from '../pics/Sun.png'
+import thunderStormBackground from '../pics/Thunderstorm.png'
+import cloudsBackground from '../pics/Clouds_PNG_Clipart-870.png'
+import rainBackground from '../pics/Rain-PNG-Transparent-Image.png'
 import TiWeatherPartlySunny from 'react-icons/lib/ti/weather-partly-sunny'
 import TiWeatherSunny from 'react-icons/lib/ti/weather-sunny'
 import TiWeatherSnow from 'react-icons/lib/ti/weather-snow'
 import InputTab from '../components/InputTab'
 
 let bodyStyle = {
-  backgroundImage: `url(${backgroundImage})`,
+  backgroundImage: `url(${sunBackground})`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
   backgroundSize: 'cover',
-  minHeight:'982px',
-  maxHeight: '1500px'
+  backgroundColor: '#88C1D5'
 }
 
 class App extends Component {
@@ -27,7 +28,7 @@ class App extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  
+    this.changeBodyStyle = this.changeBodyStyle.bind(this);
   }
 
   handleChange(event) {
@@ -39,30 +40,37 @@ class App extends Component {
     if (this.props.inputTextVal.inputText) {
       this.props.changeCity(this.props.inputTextVal.inputText)
       this.props.fetchFiveDays(this.props.inputTextVal.inputText)
-      console.log('OVO JE STATE ', this.props.weather.weather.weather[0].main)
+      // console.log('#####This is weather described', this.props.weather.weather.weather[0].main)
     }
-    if (this.props.weather.weather.weather[0].main === "Rain") {
-        bodyStyle = {
-          backgroundImage: `url(${rainBackground})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          minHeight:'982px',
-          maxHeight: '1500px'
-      }
-    }
-    else {
-      bodyStyle = {
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        minHeight:'982px',
-        maxHeight: '1500px'
-    }
-    }
+    this.changeBodyStyle()
   }
 
+  changeBodyStyle() {
+    if (this.props.weather.weather.weather[0].main === "Rain") {
+      bodyStyle = {
+        ...bodyStyle,
+        backgroundImage: `url(${rainBackground})`,
+    }
+  }
+  if (this.props.weather.weather.weather[0].main === "Clouds") {
+    bodyStyle = {
+      ...bodyStyle,
+      backgroundImage: `url(${cloudsBackground})`,
+  }
+}
+  if (this.props.weather.weather.weather[0].main === "Clear") {
+    bodyStyle = {
+      ...bodyStyle,
+      backgroundImage: `url(${sunBackground})`,
+    }
+  }
+  if (this.props.weather.weather.weather[0].main === "Thunderstorm") {
+    bodyStyle = {
+      ...bodyStyle,
+      backgroundImage: `url(${thunderStormBackground})`,
+    }
+  }
+}
   componentWillMount() {
     this.props.fetchDefaultCity()
     this.props.fetchFiveDays('Belgrade')

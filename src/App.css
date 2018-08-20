@@ -73,7 +73,6 @@ a {
   overflow: auto;
   min-width: 300px;
   max-width: 600px;
-  /* background-color: rgba(25, 128, 175, 0.308); */
 }
 .recently-searches-tr {
   background-color: rgba(25, 128, 175, 0.308);
@@ -81,8 +80,6 @@ a {
 
 .recently-searches {
   font-size: 16px;
-  /* width: 600px; */
-  /* background-color: rgba(25, 128, 175, 0.308); */
 }
  
 .recently-searches-div-parent {
