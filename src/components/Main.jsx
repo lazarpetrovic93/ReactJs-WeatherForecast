@@ -25,8 +25,9 @@ const Main = ( props ) => {
           </Tabs>
           <div>
             <RecentSearches searchedCityProp = { props.searchedCityProp }
-                          changeCityProp = { props.changeCityProp }
-                          fetchFiveDaysProp = { props.fetchFiveDaysProp}/>
+                            changeCityProp = { props.changeCityProp }
+                            fetchFiveDaysProp = { props.fetchFiveDaysProp}
+                            changeBodyStyleProp = {props.changeBodyStyleProp}/>
           </div>
         </div>
       </div>

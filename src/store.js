@@ -7,5 +7,4 @@ import logger from 'redux-logger'
 export default createStore(
   combineReducers({
     weather: weatherReducer,
-    inputText: weatherReducer,
   }),{}, applyMiddleware(logger, thunk));

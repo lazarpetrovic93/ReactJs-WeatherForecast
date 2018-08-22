@@ -27,7 +27,7 @@ export default class FiveDays extends Component {
         this.fiveDaysTable = this.fiveDays.map((day) => {
           return (
             <div>
-              <Table striped bordered condensed hover responsive>
+              <Table striped condensed hover responsive className="table table-striped table-dark">
                 <thead>
                   <tr >
                     <th className="tableCellHead">Day/Time</th>
@@ -55,7 +55,7 @@ export default class FiveDays extends Component {
           )
         })
       } else {
-        swal("Can't locate city!", "...Please enter correct City, Country!");
+        swal("For better accuracy insert City, Country!..");
       }
     }
   }

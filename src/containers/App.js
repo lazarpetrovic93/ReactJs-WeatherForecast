@@ -13,13 +13,15 @@ import TiWeatherPartlySunny from 'react-icons/lib/ti/weather-partly-sunny'
 import TiWeatherSunny from 'react-icons/lib/ti/weather-sunny'
 import TiWeatherSnow from 'react-icons/lib/ti/weather-snow'
 import InputTab from '../components/InputTab'
+import swal from 'sweetalert'
 
 let bodyStyle = {
-  backgroundImage: `url(${sunBackground})`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
   backgroundSize: 'cover',
-  backgroundColor: '#88C1D5'
+  backgroundColor: '#88C1D5',
+  height: 'auto'
+  
 }
 
 class App extends Component {
@@ -30,53 +32,65 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeBodyStyle = this.changeBodyStyle.bind(this);
   }
+  changeBodyStyle() {
+    console.log('change body style fn: ', this.props.weather.weather.weather[0].main)
+    if (this.props.weather.weather.weather[0].main === "Rain") {
+      
+      bodyStyle = {
+        ...bodyStyle,
+        backgroundImage: `url(${rainBackground})`,
+    }
+    console.log('usao u rain')
+  }
+    if (this.props.weather.weather.weather[0].main === "Clouds") {
+      bodyStyle = {
+        ...bodyStyle,
+        backgroundImage: `url(${cloudsBackground})`,
+    }
+    console.log('usao u clouds')
+  }
+    if (this.props.weather.weather.weather[0].main === "Clear") {
+      bodyStyle = {
+        ...bodyStyle,
+        backgroundImage: `url(${sunBackground})`,
+      }
+      console.log('usao u clear')
+    }
+    if (this.props.weather.weather.weather[0].main === "Thunderstorm") {
+      
+      bodyStyle = {
+        ...bodyStyle,
+        backgroundImage: `url(${thunderStormBackground})`,
+      }
+      console.log('usao u thunderstorm')
+    }
+  }
 
   handleChange(event) {
     this.props.changeInputText(event.target.value)
   }
 
-  handleSubmit(event, inputTextVal) {
+  handleSubmit(event, weather) {
     event.preventDefault();
-    if (this.props.inputTextVal.inputText) {
-      this.props.changeCity(this.props.inputTextVal.inputText)
-      this.props.fetchFiveDays(this.props.inputTextVal.inputText)
-      // console.log('#####This is weather described', this.props.weather.weather.weather[0].main)
+    if (this.props.weather.inputText) {
+      this.props.changeCity(this.props.weather.inputText)
+      this.props.fetchFiveDays(this.props.weather.inputText)
+    }
+    if (this.props.weather.weather.name === "error") {
+      swal("Error, the searched city does not exist!");
     }
     this.changeBodyStyle()
   }
 
-  changeBodyStyle() {
-    if (this.props.weather.weather.weather[0].main === "Rain") {
-      bodyStyle = {
-        ...bodyStyle,
-        backgroundImage: `url(${rainBackground})`,
-    }
-  }
-  if (this.props.weather.weather.weather[0].main === "Clouds") {
-    bodyStyle = {
-      ...bodyStyle,
-      backgroundImage: `url(${cloudsBackground})`,
-  }
-}
-  if (this.props.weather.weather.weather[0].main === "Clear") {
-    bodyStyle = {
-      ...bodyStyle,
-      backgroundImage: `url(${sunBackground})`,
-    }
-  }
-  if (this.props.weather.weather.weather[0].main === "Thunderstorm") {
-    bodyStyle = {
-      ...bodyStyle,
-      backgroundImage: `url(${thunderStormBackground})`,
-    }
-  }
-}
-  componentWillMount() {
-    this.props.fetchDefaultCity()
+  componentDidMount() {
+    this.props.fetchDefaultCity('Belgrade')
     this.props.fetchFiveDays('Belgrade')
   }
 
   render() {
+    if (this.props.weather.weather.name) {
+      this.changeBodyStyle()
+    }
     return (
       <div style={bodyStyle}>
         <PageHeader>
@@ -101,14 +115,15 @@ class App extends Component {
             <div className="p-2 ml-auto" style={{marginTop: '15px'}}>
             <InputTab inputHandleChange = {this.handleChange}
                       inputHandleSubmit = {this.handleSubmit}
-                      inputTextProps = {this.props.inputTextVal.inputText}/>
+                      inputTextProps = {this.props.weather.inputText}/>
             </div>
           </div>
         </PageHeader>
         <div>
           <Main weatherProp = {this.props.weather}
-                inputTextProp = {this.props.inputTextVal}
+                inputTextProp = {this.props.weather}
                 fiveDaysProp = {this.props.weather.fiveDays}
+                changeBodyStyleProp = {this.changeBodyStyle}
                 fetchRecentlySearchedCity = {this.props.fetchRecentlySearchedCity}
                 searchedCityProp = {this.props.weather.searchedCity}
                 changeCityProp = {this.props.changeCity }
@@ -121,19 +136,19 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    weather: state.weather,
-    inputTextVal: state.inputText,
+    weather: state.weather
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchDefaultCity: () => {
-      dispatch(fetchDefaultCity());
+    fetchDefaultCity: (text) => {
+      dispatch(fetchDefaultCity(text));
     },
     changeInputText: (text) => {
       dispatch(changeInputText(text))
     },
     changeCity: (text) => {
+      console.log('#Trigerovano');
       dispatch(changeCity(text))
     },
     fetchFiveDays: (text) => {
