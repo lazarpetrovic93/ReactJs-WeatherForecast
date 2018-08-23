@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 body {
   overflow: auto;
   font-family: sans-serif;
@@ -15,34 +13,40 @@ a {
   padding: 20px;
   color: white;
 }
-@media only screen and (max-width : 986px) {
+
+
+@media only screen and (max-width : 980px) {
 
   body {
     overflow: auto !important;
   }
+  .recently-searches-table {
+    margin-bottom: 0px;
+  }
+  
   .todayDiv {
     display: flex;
     flex-direction: column;
     max-height: 100%;
+    padding-bottom: 20PX;
   }
   .div1 {
     order: 1;
   }
+  
   .div2 {
     order: 2;
   }
+
   .leafletCont {
     max-height: 200px;
   }
-
+  
   .todayWeather {
-    height: 900px;
+    min-height: 900px;
     max-width: 100%;
-    border-radius: 30px;
-    background-color: rgba(92, 90, 90, 0.308);
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
+    }
+
   .fiveDaysTable {
     opacity: 0.9;
     overflow: auto;
@@ -52,12 +56,14 @@ a {
     border-bottom-right-radius: 0;
     border-top-left-radius: 0;
   }
+
   .tableCellDayTime {
     width: 300px;
     text-align: center;
     margin-top: 100px;
   }
 }
+/*  */
 
 .leafletCont {
   margin-top: 12px;
@@ -70,7 +76,7 @@ a {
 }
 
 .recently-searches-div {
-  height: 300px;
+  height: 296px;
   overflow: auto;
   min-width: 300px;
   max-width: 600px;
@@ -92,6 +98,7 @@ a {
 .recently-searches-div-parent::-webkit-scrollbar { 
   display: none;
 }
+/*  */
 @media screen and (max-width: 767px) {
   .table-responsive {
     width: 100%;
@@ -100,6 +107,10 @@ a {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid #ddd;
  }
+ .todayWeather {
+  min-height: 900px;
+  max-width: 100%;
+  }
 }
 .recently-searches-table {
   margin-bottom: 0px;
@@ -115,23 +126,12 @@ a {
   border-bottom: 0;
 }
 
-.todayWeather {
-  min-height: 500px;
-  max-width: 100%;
-  border-radius: 30px;
-  background-color: rgba(92, 90, 90, 0.308);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
 .fiveDaysTable {
   opacity: 0.9;
   overflow: auto;
   max-width: 100%;
-  height: 510px;
+  height: 500px;
   background-color: rgba(92, 90, 90, 0.308);
-  border-bottom-right-radius: 0;
-  border-top-left-radius: 0;
 }
 
 .tableDayTimeCell {
@@ -164,9 +164,6 @@ h1 {
   margin-bottom: 0px;
 }
 
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-  background-color: rgba(92, 90, 90, 0.308);
-}
 
 a#uncontrolled-tab-example-tab-undefined:hover{
   background-color: transparent;
@@ -192,6 +189,38 @@ a#uncontrolled-tab-example-tab-undefined:hover{
 .font-size-custom {
   font-size: 1.7rem !important;
 }
+
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
   border: 0;
+}
+
+.todayWeather {
+  height: 500px;
+  max-width: 100%;
+}
+
+.todayWeatherBlur{
+position: absolute;
+height: 100%;
+width: 100%;
+background-color: rgba(92, 90, 90, 0.308);
+top: 0;
+left: 0;
+filter: blur(10px)
+}
+
+.todayDiv {
+  max-height: 100%;
+  padding-bottom: 20PX;
+}
+.recently-searches-table {
+  margin-bottom: 0px;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  color: #555;
+  cursor: default;
+  background-color: #88C1D5;
+  /* border: 1px solid #ddd; */
+  border: transparent;
+  border-bottom-color: transparent;
 }

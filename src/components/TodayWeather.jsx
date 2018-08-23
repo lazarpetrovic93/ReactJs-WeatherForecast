@@ -79,11 +79,11 @@ class TodayWeather extends Component {
       })
     }
   }
-
+//converting kelvin to celsius
   kelvinToCelsius(kelvin) {
     return Math.floor(kelvin - 273) + " °C"
   }
-
+// formating date
   timestampToTime(date) {
     return moment.unix(date).format("HH:MM");
   }
@@ -94,59 +94,62 @@ class TodayWeather extends Component {
 
     return (
       <div className="col-md-12 col-lg-12 col-sm-12 col-xs-12 todayDiv">
-        <div className="col-md-12 col-lg-6 col-sm-12 col-xs-12 d-flex p-2 flex-column div1" style={{marginTop: '30px'}}>
-          <div className="d-flex flex-row" style={{fontSize: '30px'}}>
-            <LocationIcon size={30} className="p-2"/>
-            <p className="p-2 font-size-25">{this.props.todayProp.name},{this.weatherSys.country}</p>
-            <div className="p-2 font-size-25">{this.kelvinToCelsius(this.weahterMain.temp)}</div>
-            <div className="p-2 font-size-25" style={{marginTop: '-7px'}}><Image src = {`http://openweathermap.org/img/w/${this.weatherW.icon}.png`} circle responsive/></div>
-          </div>
-          <div className="p-2">
-            <Table hover style={{marginTop: '15px', borderRadius: '20px'}} className="table table-striped table-dark">
-              <tbody>
-                <tr>
-                  <td>
-                    <h4 className="p-2 font-size-25">Max: {this.kelvinToCelsius(this.weahterMain.temp_max)}</h4>
-                  </td>
-                  <td>
-                    <h4 className="p-2 font-size-25">Min: {this.kelvinToCelsius(this.weahterMain.temp_min)}</h4>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5 className="font-size-custom">Pressure:</h5>
-                  </td>
-                  <td>
-                    <h5 className="font-size-custom">{this.weahterMain.pressure} hpa</h5>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5 className="font-size-custom">Humidity:</h5>
-                  </td>
-                  <td>
-                    <h5 className="font-size-custom">{this.weahterMain.humidity} %</h5>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5 className="font-size-custom">Sunrise:</h5>
-                  </td>
-                  <td>
-                    <h5 className="font-size-custom">{this.timestampToTime(this.weatherSys.sunrise)} AM</h5>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5 className="font-size-custom">Sunset:</h5>
-                  </td>
-                  <td>
-                    <h5 className="font-size-custom">{this.timestampToTime(this.weatherSys.sunset)} PM</h5>
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
-          </div>
+        <div className="todayWeatherBlur">
+        </div>
+          <div className="col-md-12 col-lg-6 col-sm-12 col-xs-12 d-flex p-2 flex-column div1" style={{marginTop: '30px'}}>
+            <div className="d-flex flex-row" style={{fontSize: '30px'}}>
+              <LocationIcon size={30} className="p-2"/>
+              <p className="p-2 font-size-25">{this.props.todayProp.name},{this.weatherSys.country}</p>
+              <div className="p-2 font-size-25">{this.kelvinToCelsius(this.weahterMain.temp)}</div>
+              <div className="p-2 font-size-25" style={{marginTop: '-7px'}}><Image src = {`http://openweathermap.org/img/w/${this.weatherW.icon}.png`} circle responsive/></div>
+            </div>
+            <div className="p-2">
+              <Table hover style={{marginTop: '15px', borderRadius: '20px'}} className="table table-striped table-dark">
+                <tbody>
+                  <tr>
+                    <td>
+                      <h4 className="p-2 font-size-25">Max: {this.kelvinToCelsius(this.weahterMain.temp_max)}</h4>
+                    </td>
+                    <td>
+                      <h4 className="p-2 font-size-25">Min: {this.kelvinToCelsius(this.weahterMain.temp_min)}</h4>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5 className="font-size-custom">Pressure:</h5>
+                    </td>
+                    <td>
+                      <h5 className="font-size-custom">{this.weahterMain.pressure} hpa</h5>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5 className="font-size-custom">Humidity:</h5>
+                    </td>
+                    <td>
+                      <h5 className="font-size-custom">{this.weahterMain.humidity} %</h5>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5 className="font-size-custom">Sunrise:</h5>
+                    </td>
+                    <td>
+                      <h5 className="font-size-custom">{this.timestampToTime(this.weatherSys.sunrise)} AM</h5>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5 className="font-size-custom">Sunset:</h5>
+                    </td>
+                    <td>
+                      <h5 className="font-size-custom">{this.timestampToTime(this.weatherSys.sunset)} PM</h5>
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            </div>
+          
         </div>
 
         <div className="col-md-12 col-lg-6 col-sm-12 col-xs-12 div2">
@@ -166,9 +169,7 @@ class TodayWeather extends Component {
         </div>
       </div>
     )
-
   }
-
 }
 
 export default TodayWeather;

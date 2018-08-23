@@ -1,11 +1,12 @@
 import React from 'react'
-import { Table, Image } from 'react-bootstrap'
+import { Table, Image, Label } from 'react-bootstrap'
 
 const RecentSearches = (props) => {
 
   const  kelvinToCelsius =(kelvin) => {
     return Math.floor(kelvin - 273) + " °C"
   }
+
   const clickToChange = () => {
     props.changeCityProp()
   }
@@ -25,14 +26,26 @@ const RecentSearches = (props) => {
         ) 
       }
   })
+
+  //adding label recent searches when props.searchedCityProp.length > 0
+  const showRecentSearches = () => {
+    console.log('ovo je searchedCityProp', props.searchedCityProp)
+    if ( props.searchedCityProp.length ) {
+      return (
+        <div className="recently-searches">
+          <h4>
+            <Label>Recent Searches</Label>
+          </h4>
+        </div>
+      )
+    }
+  }
   
   return (
     <div >
-      <div className="recently-searches">
-        Recent Searches
-      </div>
+      { showRecentSearches() }
       <div className="recently-searches-div">
-          {recentlySearchesTable}
+          { recentlySearchesTable }
       </div>
     </div>
   )

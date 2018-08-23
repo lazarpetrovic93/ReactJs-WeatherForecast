@@ -12,10 +12,12 @@ export default class FiveDays extends Component {
   this.fiveDaysTable = ''
   }
 
+  //converting kelvin to celsius
   kelvinToCelsius(kelvin) {
     return Math.floor(kelvin - 273) + " °C"
   }
-
+  
+  //converting date
   timestampToTime(date) {
     return moment.unix(date).format("LLLL");
   }
