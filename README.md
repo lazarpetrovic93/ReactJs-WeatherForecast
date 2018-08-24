@@ -1,4 +1,4 @@
-Screen Shot 2018-08-24 at 11.48.30 AM.png
+Full Responsive App.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
